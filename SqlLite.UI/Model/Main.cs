@@ -14,9 +14,7 @@ namespace SqlLite.UI.Model
         private const string SeaLevelSelector = "sea_level";
         private const string GroundLevel = "grnd_level";
 
-        //[PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        //[Indexed]
         public int TemperatureId { get; set; }
         public Temperature Temperature { get; set; }
         public double Pressure { get; set; }

@@ -26,11 +26,6 @@ namespace SqlLite.UI
         private const string COD = "cod";
         private const string WeatherSelector = "weather";
         private const string MainSelector = "main";
-        private const string VisibilitySelector = "visibility";
-        private const string WindSelector = "wind";
-        private const string RaidSelector = "raid";
-        private const string SnowSelector = "snow";
-        private const string CloudsSelector = "clouds";
         private const string NameSelector = "name";
 
         private DataAccess data;
@@ -59,20 +54,8 @@ namespace SqlLite.UI
                     if (jsonData.SelectToken(COD).ToString() == ValidCod)
                     {
                         var name = jsonData.SelectToken(NameSelector).ToString();
-                        var weathers = jsonData.SelectToken(WeatherSelector).Select(weather => new Weather(weather)).ToList();
+                        var weathers = jsonData.SelectToken(WeatherSelector).Select(w => new Weather(w)).ToList();
                         var main = new Main(jsonData.SelectToken(MainSelector));
-                        var wind = new Wind(jsonData.SelectToken(WindSelector));
-                        var clouds = new Clouds(jsonData.SelectToken(CloudsSelector));
-
-                        if (jsonData.SelectToken(RaidSelector) != null)
-                        {
-                            var rain = new Rain(jsonData.SelectToken(RaidSelector));
-                        }
-
-                        if (jsonData.SelectToken(SnowSelector) != null)
-                        {
-                            var snow = new Snow(jsonData.SelectToken(SnowSelector));
-                        }
 
                         if (weathers.Any())
                         {

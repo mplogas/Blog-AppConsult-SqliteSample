@@ -7,13 +7,10 @@ namespace SqlLite.UI.Model
     public class Temperature
     {
         private double currentTemperatureInKelvin, minimumTemperatureInKelvin, maximumTemperatureInKelvin;
-
-        //[PrimaryKey, AutoIncrement]
+        
         public int Id { get; set; }
-
-        //[Ignore]
+        
         public double CelsiusCurrent { get; private set; }
-        //[Ignore]
         public double FahrenheitCurrent { get; private set; }
         public double KelvinCurrent
         {
@@ -25,13 +22,9 @@ namespace SqlLite.UI.Model
                 FahrenheitCurrent = ToFahrenheit(CelsiusCurrent);
             }
         }
-        //[Ignore]
         public double CelsiusMinimum { get; private set; }
-        //[Ignore]
         public double CelsiusMaximum { get; private set; }
-        //[Ignore]
         public double FahrenheitMinimum { get; private set; }
-        //[Ignore]
         public double FahrenheitMaximum { get; private set; }
         public double KelvinMinimum
         {

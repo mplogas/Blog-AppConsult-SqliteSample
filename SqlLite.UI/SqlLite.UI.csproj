@@ -109,14 +109,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Clouds.cs" />
-    <Compile Include="Model\DirectionEnum.cs" />
     <Compile Include="Model\Main.cs" />
-    <Compile Include="Model\Rain.cs" />
-    <Compile Include="Model\Snow.cs" />
     <Compile Include="Model\Temperature.cs" />
     <Compile Include="Model\Weather.cs" />
-    <Compile Include="Model\Wind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
