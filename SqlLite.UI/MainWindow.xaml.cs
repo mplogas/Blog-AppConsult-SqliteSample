@@ -36,10 +36,16 @@ namespace SqlLite.UI
             InitializeComponent();
 
             TbCity.Text = defaultCity;
+            if (string.IsNullOrWhiteSpace(openWeatherApiKey))
+            {
+                TbResult.Text = "No OpenWeatherApi key set. Go to https://openweathermap.org/appid to get one.";
+            }
         }
 
         private async void BtnGetWeather_OnClick(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(openWeatherApiKey)) return;
+
             var result = string.Empty;
             var city = (string.IsNullOrWhiteSpace(TbCity.Text)) ? defaultCity : TbCity.Text.Trim();
             var uri = $"{baseUri}/{weatherEndpoint}?q={city}&{openWeatherApiParam}{openWeatherApiKey}";
@@ -77,6 +83,8 @@ namespace SqlLite.UI
 
         private async void BtnSaveToDb_OnClick(object sender, RoutedEventArgs e)
         {
+            if (this.weather == null) return;
+
             if (data == null)
             {
                 this.data = new DataAccess("weather");
